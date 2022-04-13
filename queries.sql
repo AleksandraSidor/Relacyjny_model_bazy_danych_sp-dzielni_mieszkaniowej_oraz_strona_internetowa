@@ -10,7 +10,8 @@ AND m.powierzchnia >= 80;
 -- Pobranie danych o zaległych opłatach za media w bloku znajdującym się przy ulicy Krakowskiej 1A
 
 SELECT m.numer_lokalu, o.data_wystawienia_rachunku,
-o.kwota_do_zaplaty, o.za_okres_od, o.za_okres_do, md.nazwa as medium
+(z.ilosc_zuzycia * md.cena_za_jednostke) as kwota_do_zaplaty,
+o.za_okres_od, o.za_okres_do, md.nazwa as medium
 FROM oplaty o, mieszkania m, bloki b, adresy a, zuzycia z, media md
 WHERE o.mieszkanie_id=m.mieszkanie_id
 AND m.blok_id=b.blok_id AND b.adres_id=a.adres_id

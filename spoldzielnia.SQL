@@ -1,6 +1,4 @@
 
--- Create sequences section -------------------------------------------------
-
 CREATE SEQUENCE Firmy_uslugowe_Seq
  INCREMENT BY 1
  START WITH 1
@@ -288,7 +286,7 @@ CREATE INDEX IX_Jest_pod_adresem ON Firmy_uslugowe (Adres_ID)
 
 -- Add keys for table Firmy_uslugowe
 
-ALTER TABLE Firmy_uslugowe ADD CONSTRAINT Uslugi_zewnetrzne_PK PRIMARY KEY (Firma_uslugowa_ID)
+ALTER TABLE Firmy_uslugowe ADD CONSTRAINT Firma_uslugowa_PK PRIMARY KEY (Firma_uslugowa_ID)
 /
 
 ALTER TABLE Firmy_uslugowe ADD CONSTRAINT NIP UNIQUE (NIP)
@@ -462,7 +460,6 @@ CREATE TABLE Oplaty(
   Oplaty_ID Integer NOT NULL,
   Data_wystawienia_rachunku Date NOT NULL,
   Nr_rachunku Integer NOT NULL,
-  Kwota_do_zaplaty Number(7,2) NOT NULL,
   Za_okres_od Date NOT NULL,
   Za_okres_do Date NOT NULL,
   Czy_oplacony Char(1 ) NOT NULL

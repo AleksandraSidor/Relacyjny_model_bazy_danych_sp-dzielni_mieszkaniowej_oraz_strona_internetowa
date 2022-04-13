@@ -132,101 +132,99 @@ INSERT INTO MEDIA (NAZWA, CENA_ZA_JEDNOSTKE) VALUES ('Ogrzewanie', '6,50');
 
 -- Czynsze
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-03-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '0000123124512',
-  '900,00', TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '1');
+  TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '1');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '123115123',
-  '900,00', TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
+  TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
 
-  INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+  INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '123114181',
-  '900,00', TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
+  TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-03-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '12356751123',
-  '800,00', TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '2');
+  TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '2');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '968534213',
-  '800,00', TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
+  TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '8564534123',
-  '800,00', TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
+  TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-03-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '2143264862',
-  '1300,00', TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '6');
+   TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '6');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '9854342342',
-  '1300,00', TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
+   TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '874634217',
-  '1300,00', TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
+   TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
 
 
-INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('1', '0', '1');
+INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('1', '900', '1');
 
-INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('2', '0', '1');
+INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('2', '900', '1');
 
-INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('3', '0', '1');
+INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('3', '900', '1');
 
-INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('4', '0', '2');
+INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('4', '800', '2');
 
-INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('5', '0', '2');
+INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('5', '800', '2');
 
-INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('6', '0', '2');
+INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('6', '800', '2');
 
-INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('7', '0', '6');
+INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('7', '1300', '6');
 
-INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('8', '0', '6');
+INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('8', '1350', '6');
 
-INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('9', '0', '6');
+INSERT INTO Czynsze (Oplaty_ID, Wysokosc_czynszu, Mieszkanie_ID) VALUES ('9', '1350', '6');
 
-
-UPDATE czynsze SET czynsze.wysokosc_czynszu=(SELECT kwota_do_zaplaty FROM oplaty WHERE oplaty.oplaty_id = czynsze.oplaty_id);
 
 -- Media Prad
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-03-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '8753462542',
-  '210,00', TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '1');
+  TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '1');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '1243648',
-  '189,83', TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
+  TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
 
-  INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+  INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '975864364235',
-  '202,21', TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
+  TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-03-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '145264869',
-  '170,52', TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
+  TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '9656342',
-  '168,91', TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
+  TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '124263859680',
-  '210,65', TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
+  TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-03-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '0978653424',
-  '241,91', TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
+  TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '1432466897',
-  '191,56', TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
+  TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '9089854324',
-  '240,11', TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
+  TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
 
 
 INSERT INTO ZUZYCIA (MEDIUM_ID, OPLATY_ID, ILOSC_ZUZYCIA, MIESZKANIE_ID) VALUES ('1', '10', '30,2', '1');
@@ -248,47 +246,43 @@ INSERT INTO ZUZYCIA (MEDIUM_ID, OPLATY_ID, ILOSC_ZUZYCIA, MIESZKANIE_ID) VALUES 
 INSERT INTO ZUZYCIA (MEDIUM_ID, OPLATY_ID, ILOSC_ZUZYCIA, MIESZKANIE_ID) VALUES ('1', '18', '35,5', '6');
 
 
-UPDATE czynsze SET czynsze.wysokosc_czynszu=(SELECT kwota_do_zaplaty FROM oplaty WHERE oplaty.oplaty_id = czynsze.oplaty_id);
-
-
-
 -- Media Gaz
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-03-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '87564632',
-  '123,54', TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '1');
+  TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '1');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '087965343',
-  '131,21', TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '1');
+  TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'N', '1');
 
-  INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+  INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '1235286',
-  '121,31', TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
+  TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '1');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-03-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '89653424',
-  '170,12', TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
+  TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '245362458',
-  '154,76', TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
+  TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '873625124',
-  '112,12', TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
+  TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '2');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-03-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '24513247469',
-  '151,21', TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
+  TO_DATE('2022-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-02-28 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '6795463634',
-  '180,12', TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
+  TO_DATE('2022-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
 
-INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku, Kwota_do_zaplaty, Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
+INSERT INTO Oplaty (Data_wystawienia_rachunku, Nr_rachunku,  Za_okres_od, Za_okres_do, Czy_oplacony, Mieszkanie_ID)
  VALUES (TO_DATE('2022-02-04 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '845845656',
-  '200,01', TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
+  TO_DATE('2021-12-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2021-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'T', '6');
 
 
 INSERT INTO ZUZYCIA (MEDIUM_ID, OPLATY_ID, ILOSC_ZUZYCIA, MIESZKANIE_ID) VALUES ('3', '19', '13,1', '1');
