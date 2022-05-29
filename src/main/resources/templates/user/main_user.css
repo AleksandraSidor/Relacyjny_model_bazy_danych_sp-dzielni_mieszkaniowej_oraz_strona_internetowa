@@ -1,0 +1,15 @@
+btn-outline-danger {
+    text-align: center;
+    align: center;
+    border-radius: 5px;
+    backround-color:#FFDAB9;
+    border-color:#ED617D;
+    border-width: 3px;
+    height: 80%;
+    margin-right:0px
+}
+
+.btn-outline-danger:hover {
+    background-color-color:#ED617D;
+    border-width: 3px;
+}
