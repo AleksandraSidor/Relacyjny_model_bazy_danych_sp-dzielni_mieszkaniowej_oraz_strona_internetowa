@@ -33,6 +33,15 @@
             color: #2E6173;
             border-color: #2E6173;
         }
+
+        .carousel-content {
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            z-index: 20;
+            color: black;
+            font-size: 20px;
+        }
     </style>
 
 </head>
@@ -94,6 +103,14 @@
             <div class="carousel-inner" style="width: 100%; margin-left:9px; margin-right: 5px; align:center" >
                 <div class="carousel-item active" >
                     <img class="d-block w-100" src="/images/slajd1.png" alt="First slide" style="width: 100%; height: 60%">
+                    <div class="carousel-content">
+                        <div class="card rounded-3 " style="border-color: indianred; opacity: 0.4">
+                            <div class="container">
+                            <p> <a th:href="@{/login}">Zaloguj się</a> </p>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
                 <div class="carousel-item" >
