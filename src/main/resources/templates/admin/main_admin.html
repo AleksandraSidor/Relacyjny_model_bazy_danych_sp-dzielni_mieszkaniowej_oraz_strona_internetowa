@@ -58,6 +58,34 @@
     </div>
 </div>
 
+    <!-- Table -->
+    <table border = "1" cellpadding = "10">
+        <!-- Table header -->
+        <thead>
+        <tr> <!-- Table row -->
+            <th>ID</th>
+            <th>Liczba pieter</th>
+            <th>Liczba lokali</th>
+            <th>Rok powstania</th>
+            <th>Winda</th>
+            <th>Liczba klatek</th>
+        </tr>
+        </thead>
+        <!-- Table body -->
+
+        <tbody>
+        <tr th:each = "bloki: ${listBloki}">
+            <td th:text = "${bloki.blok_id}">ID</td>
+            <td th:text = "${bloki.liczba_pieter}">Liczba pieter</td>
+            <td th:text = "${bloki.liczba_lokali}">Liczba lokali</td>
+            <td th:text = "${bloki.rok_powstania}">Rok powstania</td>
+            <td th:text = "${bloki.winda}">Winda</td>
+            <td th:text = "${bloki.liczba_klatek}">Liczba klatek</td>
+
+        </tr>
+        </tbody>
+    </table>
+
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
