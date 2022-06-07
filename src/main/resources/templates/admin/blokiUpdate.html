@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/css/general.css}">
+
+
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="fragments/general.html :: navbar"></nav>
+
+<div class="container pt-3">
+    <h4 class="display-4">Update blok</h4>
+    <br>
+
+    <form th:action="@{'/admin/bloki/'+ ${blok.blok_id} + '/update'}" th:object="${blok}" method="post">
+        <!-- Table -->
+        <table cellpadding = "10" class="table fullTable table-hover">
+            <!-- Table header -->
+            <thead class="thead-dark">
+            <tr> <!-- Table row -->
+                <th>Attribute</th>
+                <th>Input</th>
+            </tr>
+            </thead>
+            <!-- Table body -->
+            <tbody>
+            <tr>
+                <th>ID</th>
+                <td><input type="text" th:field="*{blok_id}" readonly></td>
+            </tr>
+            <tr>
+                <th>Liczba pięter</th>
+                <td><input type="number" min="1" max="300" th:field="*{liczba_pieter}"></td>
+            </tr>
+            <tr>
+                <th>Liczba lokali</th>
+                <td><input type="number" min="1" max="1000" th:field="*{liczba_lokali}"></td>
+            </tr>
+            <tr>
+                <th>Rok powstania</th>
+                <td><input type="number" min="1900" max="2099" th:field="*{rok_powstania}"></td>
+            </tr>
+            <tr>
+                <th>Winda</th>
+                <td><input type="number" min="0" max="99" th:field="*{winda}"></td>
+            </tr>
+            <tr>
+                <th>Liczba klatek</th>
+                <td><input type="number" min="1" max="100" th:field="*{liczba_klatek}"></td>
+            </tr>
+
+            <tr>
+                <th>Adresy ID</th>
+                <td><input type="number" min="1" max="999999" th:field="*{adres_id}"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button type="submit" class="btn btn-primary">Save</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+
+</body>
+</html>
