@@ -5,6 +5,8 @@
     <title>Welcome Page</title>
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/css/general.css}">
+
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,40 +49,7 @@
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFDAB9;">
-    <div class="container">
-        <a class="navbar-brand" href="/">Nazwa spoldzielni np. dupa
-            <img  id="brand-image" alt="Website Logo" src="https://cdn.myclarionhousing.com/-/jssmedia/clarion-housing-association/images/logos/clarion-housing-brand-logo-colour.ashx?rev=49b22dbc691142b4be39c71b90069f28&extension=webp&w=200&h=auto&mw=200"  height="50"/>
-<!--            <img  src = "images/im.png"/>-->
-           
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/main}">Main</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/main}">Login</a></a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
+<nav th:replace="fragments/general.html :: navbar"></nav>
 
 <div class="container-fluid" style="margin-top:10px; margin-bottom:0px">
 
@@ -195,48 +164,13 @@
         </tr>
         </tbody>
     </table>-->
-<div class="row">
-        <div id="footer" class="container-fluid text-center p-4" style="margin-top: 10px; margin-right:0px; background-color: #FFDAB9; color:#2E6173">
-            <div class="row" style="margin-top:20px">
+<footer th:replace="fragments/general.html :: footer"></footer>
 
-                <div class="col">
-                    <p><i class="fa fa-home" aria-hidden="true"></i> New York, NY 10012, US</p>
-                </div>
-
-                <div class="col">
-                    <p><i class="fa fa-envelope" aria-hidden="true"></i> spoldzielnia@buziaczek.pl</p>
-                </div>
-
-                <div class="col">
-                    <p><i class="fa fa-phone" aria-hidden="true"></i> +48 122233440</p>
-                </div>
-
-                <div class="col">
-                    <p><i class="fa fa-print" aria-hidden="true"></i>  +48 22 111 09 00</p>
-                </div>
-
-
-            </div>
-<!--            <div class="col" style="align:center">
-                <div class="map-responsive" style="margin-top:10px; margin-bottom: 10px">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2378.7176787732724!2d-2.989061684209467!3d53.40198997999069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x78d32cdae7759959!2zNTPCsDI0JzA3LjIiTiAywrA1OScxMi43Ilc!5e0!3m2!1spl!2spl!4v1653825815856!5m2!1spl!2spl" width="100%" height="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-            </div>-->
-
-        </div>
-
-    <div class=" md:mb-0 container-fluid text-center p-3" style="background-color: #F2CFB0">
-        © 2022 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-</div>
-
-
-</div>
 
 
 
 
+</div>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

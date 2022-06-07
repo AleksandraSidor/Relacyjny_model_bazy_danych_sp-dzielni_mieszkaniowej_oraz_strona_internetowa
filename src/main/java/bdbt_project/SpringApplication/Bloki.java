@@ -25,6 +25,10 @@ public class Bloki {
         this.adres_id = adres_id;
     }
 
+    public Bloki(int liczba_pieter, int liczba_lokali, int rok_powstania, int winda, int liczba_klatek, int spoldzielnia_mieszkaniowa_id, int adres_id) {
+        this(0, liczba_pieter, liczba_lokali, rok_powstania, winda, liczba_klatek, spoldzielnia_mieszkaniowa_id, adres_id);
+    }
+
 
     public int getBlok_id() {
         return blok_id;

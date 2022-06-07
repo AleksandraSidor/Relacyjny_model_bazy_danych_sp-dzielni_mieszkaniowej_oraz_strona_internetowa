@@ -5,27 +5,7 @@
     <title>Main User Page</title>
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" href="main_user.css">
-
-    <style>
-        .btn-outline-danger {
-            text-align: center;
-            align: center;
-            border-radius: 5px;
-            backround-color:#FFDAB9;
-            border-color:#FFDAB9;
-            border-width: 1px;
-            height: 80%;
-            margin-right:0px
-        }
-
-        .btn-outline-danger:hover {
-            background-color:#ED617D;
-            border-width: 1px;
-            color: white;
-            border-color:#ED617D
-        }
-    </style>
+    <link th:rel="stylesheet" th:href="@{/css/main_user.css}">
 
 </head>
 <body>
@@ -78,7 +58,7 @@
         <div class="col-md-10 mt-5">
             <form method="post" th:action="@{/index}">
                 <div class="form-group">
-                    <label style="font-size:30px" th:inline="text">Welcome <a
+                    <label style="font-size:30px" th:inline="text">Welcome SRANIE<a
                             style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
                         to the main page!</label>
                     <div style="font-size:20px">If you want to logout, click "Logout" button under this text.</div>
