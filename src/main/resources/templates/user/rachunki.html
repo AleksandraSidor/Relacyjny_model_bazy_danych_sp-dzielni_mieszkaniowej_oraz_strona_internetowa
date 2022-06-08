@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Main Admin Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/css/general.css}">
+
+</head>
+<body>
+
+<nav th:replace="fragments/general.html :: navbar"></nav>
+
+<div class="container pt-3">
+    <h3 class="display-3"><b>Rachunki</b> user view</h3>
+    <div class="pt-5">
+        <!-- Table -->
+        <div class="tableFixHead">
+            <table cellpadding = "10" class="table fullTable table-hover">
+                <!-- Table header -->
+                <thead class="thead-dark">
+                <tr> <!-- Table row -->
+                    <th>Numer lokalu</th>
+                    <th>Data wystawienia rachunku</th>
+                    <th>Kwota do zapłaty</th>
+                    <th>Za okres od</th>
+                    <th>Za okres do</th>
+                    <th>Medium</th>
+                    <th>Opłacony?</th>
+                    <th colspan=1 style="width: 5%;">Actions</th>
+                </tr>
+                </thead>
+                <!-- Table body -->
+
+                <tbody>
+                <tr th:each = "rachunek: ${listRachunki}">
+                    <td th:text = "${rachunek.numer_lokalu}">Numer lokalu</td>
+                    <td th:text = "${rachunek.data_wystawienia_rachunku}">Data wystawienia rachunku</td>
+                    <td th:text = "${rachunek.kwota_do_zaplaty}">Kwota do zapłaty</td>
+                    <td th:text = "${rachunek.za_okres_od}">Za okres od</td>
+                    <td th:text = "${rachunek.za_okres_do}">Za okres do</td>
+                    <td th:text = "${rachunek.medium}">Medium</td>
+                    <td th:text = "${rachunek.czy_oplacony}">Opłacony?</td>
+                    <td><a class="btn btn-primary" href="#">Payment</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+<!--<script>-->
+<!--    // set proper dropdown menu item as 'active'-->
+<!--    $("#adresyAdmin").addClass("active");-->
+<!--</script>-->
+
+</body>
+</html>

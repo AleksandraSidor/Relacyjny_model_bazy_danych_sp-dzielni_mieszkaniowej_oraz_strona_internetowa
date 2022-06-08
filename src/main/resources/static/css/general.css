@@ -47,4 +47,5 @@ table.fullTable {
 .tableFixHead thead th {
     position: sticky;
     top: 0;
+    border-top: solid 0 black;
 }

@@ -19,7 +19,12 @@ import java.util.List;
 public class AppController implements WebMvcConfigurer {
 
     @Autowired
-    private BlokiDAO dao;
+    private BlokiDAO blokiDAO;
+    @Autowired
+    private AdresyDAO adresyDAO;
+
+    @Autowired
+    private RachunkiDAO rachunkiDAO;
 
 
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -30,9 +35,16 @@ public class AppController implements WebMvcConfigurer {
 
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/main_user").setViewName("user/main_user");
+
         registry.addViewController("/admin/bloki").setViewName("admin/bloki");
         registry.addViewController("/admin/bloki/create").setViewName("admin/blokiCreate");
         registry.addViewController("/admin/bloki/{id}/update").setViewName("admin/blokiUpdate");
+
+        registry.addViewController("/admin/adresy").setViewName("admin/adresy");
+        registry.addViewController("/admin/adresy/create").setViewName("admin/adresyCreate");
+        registry.addViewController("/admin/adresy/{id}/update").setViewName("admin/adresyUpdate");
+
+        registry.addViewController("user/rachunki").setViewName("user/rachunki");
     }
     @Controller
     public class DashboardController {
@@ -57,7 +69,7 @@ public class AppController implements WebMvcConfigurer {
 
         @RequestMapping("/main_admin")
         public String showPage(Model model) {
-            List<Bloki> listBloki = dao.list();
+            List<Bloki> listBloki = blokiDAO.list();
             model.addAttribute("listBloki", listBloki);
             return "admin/main_admin";
         }
@@ -69,7 +81,7 @@ public class AppController implements WebMvcConfigurer {
 
         @RequestMapping(value = {"/admin/bloki"})
         public String showBlokiTable(Model model) {
-            List<Bloki> listBloki = dao.list();
+            List<Bloki> listBloki = blokiDAO.list();
             model.addAttribute("listBloki", listBloki);
             return "admin/bloki";
         }
@@ -84,7 +96,7 @@ public class AppController implements WebMvcConfigurer {
         @PostMapping(value = {"admin/bloki/create"})
         public String saveCreatedBlok(@ModelAttribute("blok") Bloki blok) {
             try{
-                dao.save(blok);
+                blokiDAO.save(blok);
             } catch (EmptyResultDataAccessException ex) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Given Adres_id does not exist");
             } catch (ArithmeticException ex) {
@@ -96,7 +108,7 @@ public class AppController implements WebMvcConfigurer {
         @GetMapping(value = {"admin/bloki/{id}/update"})
         public ModelAndView showUpdateBlokForm(@PathVariable(name="id") int id) {
             ModelAndView mav = new ModelAndView("admin/blokiUpdate");
-            Bloki blok = dao.get(id);
+            Bloki blok = blokiDAO.get(id);
             mav.addObject("blok", blok);
 
             return mav;
@@ -105,7 +117,7 @@ public class AppController implements WebMvcConfigurer {
         @PostMapping(value= {"admin/bloki/{id}/update"})
         public String updateBlok(@ModelAttribute("blok") Bloki blok) {
             try{
-                dao.update(blok);
+                blokiDAO.update(blok);
             } catch (EmptyResultDataAccessException ex) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Given Adres_id does not exist");
             }
@@ -116,8 +128,63 @@ public class AppController implements WebMvcConfigurer {
         }
         @RequestMapping(value = {"admin/bloki/{id}/delete"})
         public String deleteBlok(@PathVariable(name="id") int id){
-            dao.delete(id);
+            blokiDAO.delete(id);
             return "redirect:/admin/bloki";
+        }
+
+        @RequestMapping(value = {"/admin/adresy"})
+        public String showAdresyTable(Model model) {
+            List<Adresy> listAdresy = adresyDAO.list();
+            model.addAttribute("listAdresy", listAdresy);
+            return "admin/adresy";
+        }
+
+        @GetMapping(value = {"admin/adresy/create"})
+        public String showAdresCreateForm(Model model) {
+            Adresy adres = new Adresy();
+            model.addAttribute("adres", adres);
+            return "admin/adresyCreate";
+        }
+
+        @PostMapping(value = {"admin/adresy/create"})
+        public String saveCreatedAdres(@ModelAttribute("adres") Adresy adres) {
+            adresyDAO.save(adres);
+
+            return "redirect:/admin/adresy";
+        }
+
+        @GetMapping(value = {"admin/adresy/{id}/update"})
+        public ModelAndView showUpdateAdresForm(@PathVariable(name="id") int id) {
+            ModelAndView mav = new ModelAndView("admin/adresyUpdate");
+            Adresy adres = adresyDAO.get(id);
+            mav.addObject("adres", adres);
+
+            return mav;
+        }
+
+        @PostMapping(value= {"admin/adresy/{id}/update"})
+        public String updateAdres(@ModelAttribute("adres") Adresy adres) {
+            try{
+                adresyDAO.update(adres);
+            } catch (EmptyResultDataAccessException ex) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Given Adres_id does not exist");
+            }
+            catch (ArithmeticException ex) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Given Adres_id already used");
+            }
+            return "redirect:/admin/adresy";
+        }
+        @RequestMapping(value = {"admin/adresy/{id}/delete"})
+        public String deleteAdres(@PathVariable(name="id") int id){
+            adresyDAO.delete(id);
+            return "redirect:/admin/adresy";
+        }
+
+        @GetMapping(value = {"/user/{id}/rachunki"})
+        public String getRachunkiList(@PathVariable(name="id") int id, Model model) {
+            List<Rachunki> listRachunki = rachunkiDAO.getList(id);
+            model.addAttribute("listRachunki", listRachunki);
+            return "/user/rachunki";
         }
 
     }

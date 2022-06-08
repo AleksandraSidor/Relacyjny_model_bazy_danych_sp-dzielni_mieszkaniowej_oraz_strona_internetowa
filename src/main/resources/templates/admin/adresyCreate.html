@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/css/general.css}">
+
+
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="fragments/general.html :: navbar"></nav>
+
+<div class="container pt-3">
+    <h4 class="display-4">Add new adres</h4>
+    <br>
+
+    <form action="#" th:action="@{/admin/adresy/create}" th:object="${adres}" method="post">
+        <!-- Table -->
+        <table cellpadding = "10" class="table fullTable table-hover">
+            <!-- Table header -->
+            <thead class="thead-dark">
+            <tr> <!-- Table row -->
+                <th>Attribute</th>
+                <th>Input</th>
+            </tr>
+            </thead>
+            <!-- Table body -->
+            <tbody>
+            <tr>
+                <th>Ulica</th>
+                <td><input type="text" maxlength="56" th:field="*{ulica}"></td>
+            </tr>
+            <tr>
+                <th>Numer domu</th>
+                <td><input type="text" maxlength="5" th:field="*{numer_domu}"></td>
+            </tr>
+            <tr>
+                <th>Numer lokalu</th>
+                <td><input type="text" maxlength="5" th:field="*{numer_lokalu}"></td>
+            </tr>
+            <tr>
+                <th>Miasto</th>
+                <td><input type="text" maxlength="30" th:field="*{miasto}"></td>
+            </tr>
+            <tr>
+                <th>Kod pocztowy</th>
+                <td><input type="text" maxlength="6" th:field="*{kod_pocztowy}"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button type="submit" class="btn btn-primary">Save</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+
+</body>
+</html>
