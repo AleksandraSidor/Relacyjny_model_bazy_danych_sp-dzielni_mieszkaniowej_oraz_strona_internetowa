@@ -393,4 +393,54 @@ INSERT INTO Uslugi (Cena_uslugi, Data_zawarcia_umowy, Data_rozwiazania_umowy, Fi
 INSERT INTO Uslugi (Cena_uslugi, Data_zawarcia_umowy, Data_rozwiazania_umowy, Firma_uslugowa_ID, Blok_ID)
  VALUES ('20000', TO_DATE('2021-07-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-07-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '1', '3');
 
+ALTER TABLE osoby ADD username VARCHAR2(20);
+ALTER TABLE osoby ADD haslo VARCHAR2(20);
 
+UPDATE OSOBY
+set username='user1', haslo='user1'
+where osoba_id=1;
+
+UPDATE OSOBY
+set username='user2', haslo='user2'
+where osoba_id=2;
+
+UPDATE OSOBY
+set username='user3', haslo='user3'
+where osoba_id=3;
+
+UPDATE OSOBY
+set username='user4', haslo='user4'
+where osoba_id=4;
+
+UPDATE OSOBY
+set username='user5', haslo='user5'
+where osoba_id=5;
+
+UPDATE OSOBY
+set username='user6', haslo='user6'
+where osoba_id=6;
+
+
+UPDATE OSOBY
+set username='user7', haslo='user7'
+where osoba_id=7;
+
+UPDATE OSOBY
+set username='user8', haslo='user8'
+where osoba_id=8;
+
+UPDATE OSOBY
+set username='user9', haslo='user9'
+where osoba_id=9;
+
+UPDATE OSOBY
+set username='user10', haslo='user10'
+where osoba_id=10;
+
+UPDATE OSOBY
+set username='user11', haslo='user11'
+where osoba_id=11;
+
+UPDATE OSOBY
+set username='user12', haslo='britneybitch'
+where osoba_id=12;

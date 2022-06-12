@@ -16,9 +16,9 @@ public class RachunkiDAOTest {
     @BeforeEach
     void setUp() throws Exception {
         DriverManagerDataSource datasource = new DriverManagerDataSource();
-        datasource.setUrl("jdbc:oracle:thin:@localhost:1521:orcl");
-        datasource.setUsername("OLA");
-        datasource.setPassword("princess1");
+        datasource.setUrl("jdbc:oracle:thin:@localhost:1521:orcl1");
+        datasource.setUsername("blachotrapez");
+        datasource.setPassword("dupa1234");
         datasource.setDriverClassName("oracle.jdbc.OracleDriver");
 
 
@@ -28,7 +28,7 @@ public class RachunkiDAOTest {
 
     @Test
     void testGetList() {
-        List<Rachunki> listRachunki = dao.getList(1);
+        List<Rachunki> listRachunki = dao.getList("user1");
         for (Rachunki rachunek : listRachunki) {
             System.out.println(rachunek);
         }
