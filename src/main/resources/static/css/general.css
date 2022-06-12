@@ -155,14 +155,7 @@ table.fullTable {
     box-shadow:  none !important;
 }
 
-#admin_btn1, #admin_btn2 {
-    border-color: #7d4242;
-    color: #7d4242;
-    font-weight: bold;
-    height: 90px;
-    width: 350px;
 
-}
 
 
 #pas:hover, #pas:focus, #pas:active {
@@ -178,3 +171,30 @@ table.fullTable {
 body {
     background-color: #FFF8F2;
 }
+
+#admin_btn1, #admin_btn2 {
+    border-color: #7d4242;
+    color: #7d4242;
+    font-weight: bold;
+    font-size: 24px;
+    height: 90px;
+    width: 350px;
+
+}
+
+#admin_btn1:hover, #admin_btn2:hover {
+    background-color:#7d4242;
+    border-width: 1px;
+    color: white;
+    border-color:#7d4242;
+}
+
+#admin_btn1:focus, #admin_btn2:active {
+    background-color: #7d4242 !important;
+    box-shadow: none !important;
+    border-color: #7d4242 !important;
+}
+
+
+
+

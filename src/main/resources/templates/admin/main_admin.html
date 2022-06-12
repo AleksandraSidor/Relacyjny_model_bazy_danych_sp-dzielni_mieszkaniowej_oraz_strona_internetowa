@@ -7,11 +7,11 @@
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link th:rel="stylesheet" th:href="@{/css/general.css}">
 
-<style>
-    body {
-        background-color: #FFF4E9;
-    }
-</style>
+    <style>
+        body {
+            background-color: #FFF4E9;
+        }
+    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -24,7 +24,7 @@
         <div class="col-md-10 mt-5">
             <form method="post" th:action="@{/index}">
                 <div class="form-group">
-                    <label style="font-size:30px" th:inline="text">Welcome [[${#httpServletRequest.getRemoteUser()}]]<a
+                    <label style="font-size:30px" th:inline="text">Welcome [[${#httpServletRequest.getAuthType()}]]<a
                             style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.getRemoteUser()}]]</b></a>
                         to the main page!</label>
                     <div style="font-size:20px">If you want to logout, click "Logout" button under this text.</div>
@@ -39,12 +39,24 @@
 
 <div class="container justify-content-center">
     <div class="row justify-content-center" style="padding: 30px">
-        <a class="btn btn-outline-dark " id="admin_btn1"    th:href="@{/admin/adresy}">
-            ADRESY
+        <a   th:href="@{/admin/adresy}">
+            <button class="btn btn-outline-dark " id="admin_btn1">
+                ADRESY
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="margin-left: 175px; align:center">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+            </button>
+
         </a>
     </div>
     <div class="row justify-content-center" style="padding:30px">
-        <a class="btn btn-outline-dark" id="admin_btn2" th:href="@{/admin/bloki}">BLOKI
+        <a  th:href="@{/admin/bloki}">
+            <button class="btn btn-outline-dark " id="admin_btn2">
+                BLOKI
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="margin-left: 200px; align:center">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+            </button>
         </a>
     </div>
 </div>

@@ -27,6 +27,9 @@ public class AppController implements WebMvcConfigurer {
     @Autowired
     private RachunkiDAO rachunkiDAO;
 
+    @Autowired
+    private Pracownicy_biurowiDAO pracownicy_biurowiDAO;
+
 
 
 
@@ -181,6 +184,13 @@ public class AppController implements WebMvcConfigurer {
         public String deleteAdres(@PathVariable(name="id") int id){
             adresyDAO.delete(id);
             return "redirect:/admin/adresy";
+        }
+
+        @RequestMapping(value = {"/admin/pracownicy"})
+        public String showPBTable(Model model) {
+            List<Pracownicy_biurowi> listPracownicy_biurowi = pracownicy_biurowiDAO.list();
+            model.addAttribute("listPracownicy_biurowi", listPracownicy_biurowi);
+            return "admin/pracownicy";
         }
 
         @GetMapping(value = {"/user/rachunki"})
