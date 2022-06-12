@@ -3,6 +3,8 @@ package bdbt_project.SpringApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,12 +31,17 @@ public class RachunkiDAO {
 
 
     public List<Rachunki> getList(int id) {
+        Authentication user = (Authentication) SecurityContextHolder.getContext().getAuthentication().getCredentials();
+        System.out.println(user);
+
+        //String user = [[${#httpServletRequest.getRemoteUser()}]];
         String sql = String.format(
                 "SELECT m.numer_lokalu, o.data_wystawienia_rachunku,\n" +
                 "       (z.ilosc_zuzycia * md.cena_za_jednostke) as kwota_do_zaplaty,\n" +
                 "       o.za_okres_od, o.za_okres_do, md.nazwa as medium, o.CZY_OPLACONY\n" +
                 "FROM oplaty o, mieszkania m, zuzycia z, media md, mieszkancy mi, OSOBY os\n" +
-                "WHERE os.OSOBA_ID=%d\n" +
+
+                        " WHERE os.HASLO="+ user+ "\n" +
                 "  AND os.OSOBA_ID=mi.OSOBA_ID\n" +
                 "  AND mi.MIESZKANIE_ID=m.MIESZKANIE_ID\n" +
                 "  AND o.mieszkanie_id=m.mieszkanie_id\n" +

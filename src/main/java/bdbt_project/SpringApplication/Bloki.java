@@ -10,6 +10,7 @@ public class Bloki {
     private int spoldzielnia_mieszkaniowa_id;
     private int adres_id;
 
+
     public Bloki() {
     }
 

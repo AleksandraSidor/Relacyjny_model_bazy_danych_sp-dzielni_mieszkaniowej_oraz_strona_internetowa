@@ -16,9 +16,9 @@ public class RachunkiDAOTest {
     @BeforeEach
     void setUp() throws Exception {
         DriverManagerDataSource datasource = new DriverManagerDataSource();
-        datasource.setUrl("jdbc:oracle:thin:@localhost:1521:ORCL1");
-        datasource.setUsername("blachotrapez");
-        datasource.setPassword("dupa1234");
+        datasource.setUrl("jdbc:oracle:thin:@localhost:1521:orcl");
+        datasource.setUsername("OLA");
+        datasource.setPassword("princess1");
         datasource.setDriverClassName("oracle.jdbc.OracleDriver");
 
 

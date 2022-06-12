@@ -7,9 +7,13 @@
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link th:rel="stylesheet" th:href="@{/css/general.css}">
 
-
+<style>
+    body {
+        background-color: #FFF4E9;
+    }
+</style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <!-- Navigation -->
 <nav th:replace="fragments/general.html :: navbar"></nav>
@@ -20,8 +24,8 @@
         <div class="col-md-10 mt-5">
             <form method="post" th:action="@{/index}">
                 <div class="form-group">
-                    <label style="font-size:30px" th:inline="text">Welcome <a
-                            style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
+                    <label style="font-size:30px" th:inline="text">Welcome [[${#httpServletRequest.getRemoteUser()}]]<a
+                            style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.getRemoteUser()}]]</b></a>
                         to the main page!</label>
                     <div style="font-size:20px">If you want to logout, click "Logout" button under this text.</div>
                 </div>
@@ -31,8 +35,22 @@
             </form>
         </div>
     </div>
+</div>
+
+<div class="container justify-content-center">
+    <div class="row justify-content-center" style="padding: 30px">
+        <a class="btn btn-outline-dark " id="admin_btn1"    th:href="@{/admin/adresy}">
+            ADRESY
+        </a>
+    </div>
+    <div class="row justify-content-center" style="padding:30px">
+        <a class="btn btn-outline-dark" id="admin_btn2" th:href="@{/admin/bloki}">BLOKI
+        </a>
     </div>
 </div>
+
+
+
 
 
 

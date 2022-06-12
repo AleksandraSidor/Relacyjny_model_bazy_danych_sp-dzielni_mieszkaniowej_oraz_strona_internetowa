@@ -1,9 +1,17 @@
 package bdbt_project.SpringApplication;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +33,8 @@ public class AppController implements WebMvcConfigurer {
 
     @Autowired
     private RachunkiDAO rachunkiDAO;
+
+
 
 
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -187,5 +197,16 @@ public class AppController implements WebMvcConfigurer {
             return "/user/rachunki";
         }
 
+/*        @ResponseBody
+        public String currentUser(){
+            Authentication user = (Authentication) SecurityContextHolder.getContext().getAuthentication().getCredentials();
+            System.out.println(user);
+            String u = user.toString();
+            return(u);
+        }*/
+
+
+
     }
+
 }

@@ -10,7 +10,8 @@ table.fullTable {
     border-color:transparent;
     border-width: 1px;
     height: 80%;
-    margin-right:0px
+    margin-right:0px;
+    color:#ED617D;
 }
 
 .btn-outline-danger:hover {
@@ -20,24 +21,109 @@ table.fullTable {
     border-color:#ED617D
 }
 
+.btn-outline-danger:active {
+    outline-color: #ED617D;
+}
+
 .btn-outline-success {
     text-align: center;
     align: center;
     border-radius: 5px;
     background-color:transparent;
-    border-color:transparent;
     border-width: 1px;
     height: 80%;
-    margin-right:0px
+    margin-right:0px;
+    border-color: transparent;
+    color: #2E6173;
 }
 
 .btn-outline-success:hover {
-    background-color:#77dd77;
+    background-color:#2E6173;
     border-width: 1px;
     color: white;
-    border-color:#77dd77
+    border-color:#2E6173
 }
 
+/*.btn-outline-success:focus, .btn-outline-success:active {
+    outline: none !important;
+    box-shadow: none !important;
+
+}*/
+.btn-outline-success:focus, .btn-outline-success:active {
+    background-color: #2E6173 !important;
+    box-shadow: none !important;
+    border-color: #2E6173 !important;
+}
+
+#delete {
+    border-color: transparent;
+}
+
+#delete:hover {
+    background-color:transparent;
+    border-width: 1px;
+    color: #970000;
+    border-color:transparent;
+}
+
+#delete:focus, #delete:active {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+#update {
+    border-color: transparent;
+}
+
+#update:hover {
+    background-color:transparent;
+    border-width: 1px;
+    color: #00B4D8;
+    border-color:transparent;
+}
+
+#update:focus, #update:active {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+#add {
+    border-color: transparent;
+    font-weight: bold;
+}
+
+#add:hover {
+    background-color:transparent;
+    border-width: 1px;
+    color: #56aa71;
+    border-color:transparent;
+}
+
+#add:focus, #add:active {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+#cancel {
+    border-color: transparent;
+    font-weight: bold;
+}
+
+#cancel:hover {
+    background-color:transparent;
+    border-width: 1px;
+    color: #970000;
+    border-color:transparent;
+}
+
+#cancel:focus, #add:active {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
 
 .tableFixHead {
     overflow-y: auto;
@@ -47,5 +133,48 @@ table.fullTable {
 .tableFixHead thead th {
     position: sticky;
     top: 0;
-    border-top: solid 0 black;
+    border-top: solid 0 #7d4242;
+    border-bottom: solid 2px #7d4242 !important;
+    background-color: #a45656 !important;
+}
+
+.tableFixHead tbody td, .tableFixHead tbody th {
+    border-bottom: solid 1px #7d4242 !important;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th{
+    background-color: #E4E4E4;
+}
+
+#login:hover, #login:focus  {
+    box-shadow:  0 0 2px 2px #FFDAB9 !important;
+    border-color: #FFDAB9 !important;
+}
+
+#login:active {
+    box-shadow:  none !important;
+}
+
+#admin_btn1, #admin_btn2 {
+    border-color: #7d4242;
+    color: #7d4242;
+    font-weight: bold;
+    height: 90px;
+    width: 350px;
+
+}
+
+
+#pas:hover, #pas:focus, #pas:active {
+    box-shadow:  0 0 2px 2px #FFDAB9 !important;
+    border-color: #FFDAB9 !important;
+}
+
+#password:hover, #password:focus, #password:active {
+    box-shadow:  none !important;
+    border-color: #FFDAB9 !important;
+}
+
+body {
+    background-color: #FFF8F2;
 }

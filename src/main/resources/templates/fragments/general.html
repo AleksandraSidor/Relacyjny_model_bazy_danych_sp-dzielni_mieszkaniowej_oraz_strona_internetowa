@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:fragment="headerfiles">
   <meta charset="UTF-8" />
   <link th:rel="stylesheet" th:href="@{/css/general.css}">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <div th:fragment="navbar">
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFDAB9;">
@@ -65,11 +65,11 @@
             <li class = "nav-item" style="align: left">
               <form method="get" th:action="@{/login}" style="align:center; margin-left:25px">
                 <button class="btn btn-outline-success" type="submit">
-                  Login
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
-                    <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
+                    <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                    <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
                   </svg>
+                  Login
                 </button>
               </form>
             </li>
@@ -87,7 +87,7 @@
 </div>
 
 <div th:fragment="footer">
-<footer class="row">
+<footer class=" row mt-auto">
   <div id="footer" class="container-fluid text-center p-4" style="margin-top: 10px; margin-right:0px; background-color: #FFDAB9; color:#2E6173">
     <div class="row" style="margin-top:20px">
 
@@ -123,6 +123,14 @@
   </div>
 </footer>
 </div>
+
+<!--<div th:fragment="footer2">
+  <footer class="mt-auto">
+    <div class="container-fluid text-center p-4" style="background-color:  #F7CCAC">
+
+    </div>
+  </footer>
+</div>-->
 
 </body>
 </html>
