@@ -1,6 +1,7 @@
 package bdbt_project.SpringApplication;
 
 public class RachunkiCzynsze {
+    private int oplaty_id;
     private String numer_lokalu;
     private String data_wystawienia_rachunku;
     private String za_okres_od;
@@ -11,7 +12,7 @@ public class RachunkiCzynsze {
     private String czy_oplacony;
 
     public RachunkiCzynsze(String numer_lokalu, String data_wystawienia_rachunku, String za_okres_od,
-                         String za_okres_do, String czy_oplacony, float wysokosc_czynszu,
+                         String za_okres_do, String czy_oplacony, float wysokosc_czynszu, float kwota_do_zaplaty,
                            float oplaty_dodatkowe) {
         this.numer_lokalu = numer_lokalu;
         this.data_wystawienia_rachunku = data_wystawienia_rachunku;
@@ -19,11 +20,26 @@ public class RachunkiCzynsze {
         this.za_okres_do = za_okres_do;
         this.wysokosc_czynszu = wysokosc_czynszu;
         this.oplaty_dodatkowe = oplaty_dodatkowe;
-        this.kwota_do_zaplaty = wysokosc_czynszu + oplaty_dodatkowe;
+        this.kwota_do_zaplaty = kwota_do_zaplaty;
         this.czy_oplacony = czy_oplacony;
     }
 
     public RachunkiCzynsze() {
+    }
+
+    public RachunkiCzynsze(int oplaty_id, String numer_lokalu, String data_wystawienia_rachunku, String za_okres_od,
+                           String za_okres_do, float wysokosc_czynszu, float oplaty_dodatkowe, float kwota_do_zaplaty,
+                           String czy_oplacony) {
+
+        this.oplaty_id = oplaty_id;
+        this.numer_lokalu = numer_lokalu;
+        this.data_wystawienia_rachunku = data_wystawienia_rachunku;
+        this.za_okres_od = za_okres_od;
+        this.za_okres_do = za_okres_do;
+        this.wysokosc_czynszu = wysokosc_czynszu;
+        this.oplaty_dodatkowe = oplaty_dodatkowe;
+        this.kwota_do_zaplaty = kwota_do_zaplaty;
+        this.czy_oplacony = czy_oplacony;
     }
 
     public String getNumer_lokalu() {
@@ -93,10 +109,19 @@ public class RachunkiCzynsze {
         this.kwota_do_zaplaty = kwota_do_zaplaty;
     }
 
+    public int getOplaty_id() {
+        return oplaty_id;
+    }
+
+    public void setOplaty_id(int oplaty_id) {
+        this.oplaty_id = oplaty_id;
+    }
+
     @Override
     public String toString() {
         return "Rachunki{" +
-                "numer_lokalu=" + numer_lokalu +
+                "oplaty_id=" + oplaty_id +
+                ",numer_lokalu=" + numer_lokalu +
                 ", data_wystawienia_rachunku='" + data_wystawienia_rachunku + '\'' +
                 ", kwota_do_zaplaty=" + kwota_do_zaplaty +
                 ", za_okres_od='" + za_okres_od + '\'' +

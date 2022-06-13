@@ -263,6 +263,28 @@ public class AppController implements WebMvcConfigurer {
             }
         }
 
+        @GetMapping(value= {"user/rachunki/czynsze/{id}/pay"})
+        public String updateRachunekCzynsz(@PathVariable(name="id") int id, Principal principal) {
+            try {
+                rachunkiCzynszeDAO.update(id, principal.getName());
+            }
+            catch (EmptyResultDataAccessException ex) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You don't have access to modify this data");
+            }
+            return "redirect:/user/rachunki/czynsze";
+        }
+
+        @GetMapping(value= {"user/rachunki/media/{id}/pay"})
+        public String updateRachunekMedia(@PathVariable(name="id") int id, Principal principal) {
+            try {
+                rachunkiMediaDAO.update(id, principal.getName());
+            }
+            catch (EmptyResultDataAccessException ex) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You don't have access to modify this data");
+            }
+            return "redirect:/user/rachunki/media";
+        }
+
 /*        @ResponseBody
         public String currentUser(){
             Authentication user = (Authentication) SecurityContextHolder.getContext().getAuthentication().getCredentials();

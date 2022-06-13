@@ -1,6 +1,8 @@
 package bdbt_project.SpringApplication;
 
 public class RachunkiMedia {
+
+    private int oplaty_id;
     private String numer_lokalu;
     private String data_wystawienia_rachunku;
     private float kwota_do_zaplaty;
@@ -21,6 +23,18 @@ public class RachunkiMedia {
     }
 
     public RachunkiMedia() {
+    }
+
+    public RachunkiMedia(int oplaty_id, String numer_lokalu, String data_wystawienia_rachunku, float kwota_do_zaplaty,
+                         String za_okres_od, String za_okres_do, String medium, String czy_oplacony) {
+        this.oplaty_id = oplaty_id;
+        this.numer_lokalu = numer_lokalu;
+        this.data_wystawienia_rachunku = data_wystawienia_rachunku;
+        this.kwota_do_zaplaty = kwota_do_zaplaty;
+        this.za_okres_od = za_okres_od;
+        this.za_okres_do = za_okres_do;
+        this.medium = medium;
+        this.czy_oplacony = czy_oplacony;
     }
 
     public String getNumer_lokalu() {
@@ -77,6 +91,14 @@ public class RachunkiMedia {
 
     public void setCzy_oplacony(String czy_oplacony) {
         this.czy_oplacony = czy_oplacony;
+    }
+
+    public int getOplaty_id() {
+        return oplaty_id;
+    }
+
+    public void setOplaty_id(int oplaty_id) {
+        this.oplaty_id = oplaty_id;
     }
 
     @Override
