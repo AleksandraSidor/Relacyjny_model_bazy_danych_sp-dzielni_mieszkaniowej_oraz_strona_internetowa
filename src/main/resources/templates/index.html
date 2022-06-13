@@ -16,11 +16,10 @@
     <style>
         .btn-outline-info {
             border-color: #2E6173;
-            text-align: left;
+            text-align: center;
             font-size: 24px;
             font-family: Segoe UI, Arial;
             color:#2E6173;
-            align: center;
             border-radius: 5px;
             backround-color:white;
             border-width: 1px;
@@ -31,19 +30,18 @@
         }
 
         .btn-outline-info:hover {
-            background: #E4E4E4;
-            color: #2E6173;
-            border-color: #2E6173;
+            background: #2E6173;
+            color: #FFF8F2;
+            border-color: #FFF8F2;
         }
 
-        .carousel-content {
-            position: absolute;
-            top: 30%;
-            left: 10%;
-            z-index: 20;
-            color: black;
-            font-size: 20px;
+        .btn-outline-info:focus, .btn-outline-info:active {
+            background-color: #FFF8F2 !important;
+            box-shadow: none !important;
+            border-color: #2E6173 !important;
+            color: #2E6173 !important;
         }
+
     </style>
 
 </head>
@@ -72,14 +70,6 @@
             <div class="carousel-inner" style="width: 100% !important;align:center" >
                 <div class="carousel-item active" >
                     <img class="d-block w-100" src="/images/slajd1.png" alt="First slide" style="width: 100% !important; height: 60%">
-                    <div class="carousel-content">
-                        <div class="card rounded-3 " style="border-color: indianred; opacity: 0.4">
-                            <div class="container">
-                            <p> <a th:href="@{/login}">Zaloguj się</a> </p>
-                            </div>
-                        </div>
-
-                    </div>
 
                 </div>
                 <div class="carousel-item">
@@ -101,31 +91,31 @@
 
 
     <div class="px-2 py-2" style="margin-top:40px; margin-bottom:50px">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-3">
-                <button class="btn btn-outline-info" type="pay"  value="Sign Out">
-                    <svg   xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16" style="margin-right:15px">
+        <div class="container mx-auto d-flex justify-content-around">
+            <div class="grid grid-cols-">
+
+                <a th:href="@{/login}" >
+                    <button  class="btn btn-outline-info " type="pay"  value="Sign In" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16" >
+                        <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                        <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
+                    </svg>
+
+                    Zaloguj się
+                    </button>
+                </a>
+
+                <a th:href="@{/main_user}">
+                    <button class="btn btn-outline-info" type="pay"  value="Sign In" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
                         <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
                     </svg>
-                      Zapłać rachunki
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="margin-left: 70px; align:center">
-                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                    </svg>
-                </button>
+                    Zapłać rachunki
+                    </button>
+                </a>
 
-                <button class="btn btn-outline-info" type="pay"  value="Sign Out">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16" style="margin-right:15px">
-                        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
-                        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
-                    </svg>
-                    Zrob costam
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="margin-left: 100px; align:center">
-                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                    </svg>
-                </button>
-
-                <button class="btn btn-outline-info" type="pay"  value="Sign Out">
+<!--                <button class="btn btn-outline-info" type="pay"  value="Sign Out">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-emoji-sunglasses" viewBox="0 0 16 16" style="margin-right:15px">
                         <path d="M4.968 9.75a.5.5 0 1 0-.866.5A4.498 4.498 0 0 0 8 12.5a4.5 4.5 0 0 0 3.898-2.25.5.5 0 1 0-.866-.5A3.498 3.498 0 0 1 8 11.5a3.498 3.498 0 0 1-3.032-1.75zM7 5.116V5a1 1 0 0 0-1-1H3.28a1 1 0 0 0-.97 1.243l.311 1.242A2 2 0 0 0 4.561 8H5a2 2 0 0 0 1.994-1.839A2.99 2.99 0 0 1 8 6c.393 0 .74.064 1.006.161A2 2 0 0 0 11 8h.438a2 2 0 0 0 1.94-1.515l.311-1.242A1 1 0 0 0 12.72 4H10a1 1 0 0 0-1 1v.116A4.22 4.22 0 0 0 8 5c-.35 0-.69.04-1 .116z"/>
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-1 0A7 7 0 1 0 1 8a7 7 0 0 0 14 0z"/>
@@ -134,7 +124,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="margin-left: 150px; align:center">
                         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                     </svg>
-                </button>
+                </button>-->
             </div>
         </div>
     </div>

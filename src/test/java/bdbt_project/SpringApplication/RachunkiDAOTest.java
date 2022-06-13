@@ -9,9 +9,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class RachunkiCzynszeDAOTest {
+public class RachunkiDAOTest {
 
-    private RachunkiCzynszeDAO dao;
+    private RachunkiDAO dao;
 
     @BeforeEach
     void setUp() throws Exception {
@@ -22,17 +22,17 @@ public class RachunkiCzynszeDAOTest {
         datasource.setDriverClassName("oracle.jdbc.OracleDriver");
 
 
-        dao = new RachunkiCzynszeDAO(new JdbcTemplate(datasource));
+        dao = new RachunkiDAO(new JdbcTemplate(datasource));
 
     }
 
     @Test
     void testGetList() {
-        List<RachunkiCzynsze> listRachunkiCzynsze = dao.getList("user1");
-        for (RachunkiCzynsze rachunek : listRachunkiCzynsze) {
+        List<Rachunki> listRachunki = dao.getList("user1");
+        for (Rachunki rachunek : listRachunki) {
             System.out.println(rachunek);
         }
-        assertFalse(listRachunkiCzynsze.isEmpty());
+        assertFalse(listRachunki.isEmpty());
     }
 
 

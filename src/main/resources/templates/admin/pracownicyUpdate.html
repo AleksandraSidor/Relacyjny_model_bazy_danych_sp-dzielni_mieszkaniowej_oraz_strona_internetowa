@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/css/general.css}">
+
+
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="fragments/general.html :: navbar"></nav>
+
+<div class="container pt-3">
+    <h4 class="display-4">Update pracownik</h4>
+    <br>
+
+    <form th:action="@{'/admin/pracownicy/'+ ${pracownicy_biurowi.pracownik_id} + '/update'}" th:object="${pracownicy_biurowi}" method="post">
+        <!-- Table -->
+        <div class="tableFixHead">
+            <table cellpadding = "10" class="table fullTable table-hover">
+                <!-- Table header -->
+                <thead class="thead-dark">
+                <tr> <!-- Table row -->
+                    <th>Attribute</th>
+                    <th>Input</th>
+                </tr>
+                </thead>
+                <!-- Table body -->
+                <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td><input type="text" th:field="*{pracownik_id}" readonly></td>
+                </tr>
+                <tr>
+                    <th>Imię</th>
+                    <td><input type="text" maxlength="20" th:field="*{imie}"></td>
+                </tr>
+                <tr>
+                    <th>Drugie imię</th>
+                    <td><input type="text" maxlength="20" th:field="*{drugie_imie}"></td>
+                </tr>
+                <tr>
+                    <th>Nazwisko</th>
+                    <td><input type="text" maxlength="30" th:field="*{nazwisko}"></td>
+                </tr>
+                <tr>
+                    <th>Pesel</th>
+                    <td><input type="text" minlength="11" maxlength="11" th:field="*{pesel}"></td>
+                </tr>
+                <tr>
+                    <th>Data urodzenia</th>
+                    <td><input type="text" th:field="*{data_urodzenia}" readonly></td>
+                </tr>
+
+                <tr>
+                    <th>Numer telefonu</th>
+                    <td><input type="text" maxlength="12" th:field="*{numer_telefonu}"></td>
+                </tr>
+
+                <tr>
+                    <th>Plec</th>
+                    <td><input type="text" maxlength="1" th:field="*{plec}"></td>
+                </tr>
+
+                <tr>
+                    <th>Numer konta</th>
+                    <td><input type="number" maxlength="24" th:field="*{data_urodzenia}"></td>
+                </tr>
+
+                <tr>
+                    <th>Data zatrudnienia</th>
+                    <td><input type="text" th:field="*{data_zatrudnienia}" readonly></td>
+                </tr>
+
+                <tr>
+                    <th>Data zwolnienia</th>
+                    <td><input type="date" th:field="*{data_zwolnienia}"></td>
+                </tr>
+
+                <tr>
+                    <th>Adresy ID</th>
+                    <td><input type="number" min="1" max="999999" th:field="*{adres_id}"></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-between"  style="padding-top:10px">
+            <div class="col-1"><button id="add" class="btn btn-outline-dark" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                </svg>
+                Update</button></div>
+            <div><a id="cancel" class="btn btn-outline-dark" th:href="@{/admin/pracownicy}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+                Cancel</a></div>
+        </div>
+    </form>
+</div>
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+
+</body>
+</html>

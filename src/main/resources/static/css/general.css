@@ -127,7 +127,8 @@ table.fullTable {
 
 .tableFixHead {
     overflow-y: auto;
-    height: 500px;
+    height: auto;
+    max-height: 500px;
 }
 
 .tableFixHead thead th {

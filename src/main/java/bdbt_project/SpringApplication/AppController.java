@@ -35,6 +35,8 @@ public class AppController implements WebMvcConfigurer {
 
 
 
+
+
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/").setViewName("index");
@@ -189,11 +191,52 @@ public class AppController implements WebMvcConfigurer {
             return "redirect:/admin/adresy";
         }
 
-        @RequestMapping(value = {"/admin/pracownicy"})
-        public String showPBTable(Model model) {
+        @RequestMapping(value = {"admin/pracownicy"})
+        public String showPracownicyTable(Model model) {
             List<Pracownicy_biurowi> listPracownicy_biurowi = pracownicy_biurowiDAO.list();
             model.addAttribute("listPracownicy_biurowi", listPracownicy_biurowi);
             return "admin/pracownicy";
+        }
+
+        @GetMapping(value = {"admin/pracownicy/create"})
+        public String showPracownicyCreateForm(Model model) {
+            Pracownicy_biurowi pracownicy_biurowi = new Pracownicy_biurowi();
+            model.addAttribute("pracownicy_biurowi", pracownicy_biurowi);
+            return "admin/pracownicyCreate";
+        }
+
+        @PostMapping(value = {"admin/pracownicy/create"})
+        public String saveCreatedPB(@ModelAttribute("adres") Adresy adres, @ModelAttribute("pracownicy_biurowi") Pracownicy_biurowi pracownicy_biurowi) {
+            pracownicy_biurowiDAO.save(pracownicy_biurowi, adres);
+            return "redirect:/admin/pracownicy";
+        }
+
+        @GetMapping(value = {"admin/pracownicy/{id}/update"})
+        public ModelAndView showUpdatePracownicyForm(@PathVariable(name="id") int id) {
+            ModelAndView mav = new ModelAndView("admin/pracownicyUpdate");
+            Pracownicy_biurowi pracownicy_biurowi = pracownicy_biurowiDAO.get(id);
+            mav.addObject("pracownicy_biurowi", pracownicy_biurowi);
+
+            return mav;
+        }
+
+        @PostMapping(value= {"admin/pracownicy/{id}/update"})
+        public String updatePracownik(@ModelAttribute("pracownicy_biurowi") Pracownicy_biurowi pracownicy_biurowi) {
+            try{
+                pracownicy_biurowiDAO.update(pracownicy_biurowi);
+            } catch (EmptyResultDataAccessException ex) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Given Adres_id does not exist");
+            }
+            catch (ArithmeticException ex) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Given Adres_id already used");
+            }
+            return "redirect:/admin/pracownicy";
+        }
+
+        @RequestMapping(value = {"admin/pracownicy/{id}/delete"})
+        public String deletePracownik(@PathVariable(name="id") int id){
+            pracownicy_biurowiDAO.delete(id);
+            return "redirect:/admin/pracownicy";
         }
 
         @GetMapping(value = {"/user/rachunki/media"})
