@@ -9,30 +9,30 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class RachunkiDAOTest {
+public class RachunkiCzynszeDAOTest {
 
-    private RachunkiDAO dao;
+    private RachunkiCzynszeDAO dao;
 
     @BeforeEach
     void setUp() throws Exception {
         DriverManagerDataSource datasource = new DriverManagerDataSource();
-        datasource.setUrl("jdbc:oracle:thin:@localhost:1521:orcl");
-        datasource.setUsername("OLA");
-        datasource.setPassword("princess1");
+        datasource.setUrl("jdbc:oracle:thin:@localhost:1521:orcl1");
+        datasource.setUsername("blachotrapez");
+        datasource.setPassword("dupa1234");
         datasource.setDriverClassName("oracle.jdbc.OracleDriver");
 
 
-        dao = new RachunkiDAO(new JdbcTemplate(datasource));
+        dao = new RachunkiCzynszeDAO(new JdbcTemplate(datasource));
 
     }
 
     @Test
     void testGetList() {
-        List<Rachunki> listRachunki = dao.getList("user1");
-        for (Rachunki rachunek : listRachunki) {
+        List<RachunkiCzynsze> listRachunkiCzynsze = dao.getList("user1");
+        for (RachunkiCzynsze rachunek : listRachunkiCzynsze) {
             System.out.println(rachunek);
         }
-        assertFalse(listRachunki.isEmpty());
+        assertFalse(listRachunkiCzynsze.isEmpty());
     }
 
 

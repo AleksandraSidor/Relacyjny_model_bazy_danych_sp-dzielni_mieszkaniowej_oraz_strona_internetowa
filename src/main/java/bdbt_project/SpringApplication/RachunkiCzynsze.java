@@ -1,26 +1,29 @@
 package bdbt_project.SpringApplication;
 
-public class Rachunki {
+public class RachunkiCzynsze {
     private String numer_lokalu;
     private String data_wystawienia_rachunku;
-    private float kwota_do_zaplaty;
     private String za_okres_od;
     private String za_okres_do;
-    private String medium;
+    private float wysokosc_czynszu;
+    private float oplaty_dodatkowe;
+    private float kwota_do_zaplaty;
     private String czy_oplacony;
 
-    public Rachunki(String numer_lokalu, String data_wystawienia_rachunku, float kwota_do_zaplaty, String za_okres_od,
-                    String za_okres_do, String medium, String czy_oplacony) {
+    public RachunkiCzynsze(String numer_lokalu, String data_wystawienia_rachunku, String za_okres_od,
+                         String za_okres_do, String czy_oplacony, float wysokosc_czynszu,
+                           float oplaty_dodatkowe) {
         this.numer_lokalu = numer_lokalu;
         this.data_wystawienia_rachunku = data_wystawienia_rachunku;
-        this.kwota_do_zaplaty = kwota_do_zaplaty;
         this.za_okres_od = za_okres_od;
         this.za_okres_do = za_okres_do;
-        this.medium = medium;
+        this.wysokosc_czynszu = wysokosc_czynszu;
+        this.oplaty_dodatkowe = oplaty_dodatkowe;
+        this.kwota_do_zaplaty = wysokosc_czynszu + oplaty_dodatkowe;
         this.czy_oplacony = czy_oplacony;
     }
 
-    public Rachunki() {
+    public RachunkiCzynsze() {
     }
 
     public String getNumer_lokalu() {
@@ -43,9 +46,6 @@ public class Rachunki {
         return za_okres_do;
     }
 
-    public String getMedium() {
-        return medium;
-    }
 
     public String getCzy_oplacony() {
         return czy_oplacony;
@@ -59,9 +59,6 @@ public class Rachunki {
         this.data_wystawienia_rachunku = data_wystawienia_rachunku;
     }
 
-    public void setKwota_do_zaplaty(float kwota_do_zaplaty) {
-        this.kwota_do_zaplaty = kwota_do_zaplaty;
-    }
 
     public void setZa_okres_od(String za_okres_od) {
         this.za_okres_od = za_okres_od;
@@ -71,12 +68,29 @@ public class Rachunki {
         this.za_okres_do = za_okres_do;
     }
 
-    public void setMedium(String medium) {
-        this.medium = medium;
-    }
 
     public void setCzy_oplacony(String czy_oplacony) {
         this.czy_oplacony = czy_oplacony;
+    }
+
+    public float getWysokosc_czynszu() {
+        return wysokosc_czynszu;
+    }
+
+    public void setWysokosc_czynszu(float wysokosc_czynszu) {
+        this.wysokosc_czynszu = wysokosc_czynszu;
+    }
+
+    public float getOplaty_dodatkowe() {
+        return oplaty_dodatkowe;
+    }
+
+    public void setOplaty_dodatkowe(float oplaty_dodatkowe) {
+        this.oplaty_dodatkowe = oplaty_dodatkowe;
+    }
+
+    public void setKwota_do_zaplaty(float kwota_do_zaplaty) {
+        this.kwota_do_zaplaty = kwota_do_zaplaty;
     }
 
     @Override
@@ -87,8 +101,11 @@ public class Rachunki {
                 ", kwota_do_zaplaty=" + kwota_do_zaplaty +
                 ", za_okres_od='" + za_okres_od + '\'' +
                 ", za_okres_do='" + za_okres_do + '\'' +
-                ", medium='" + medium + '\'' +
+                ", wysokosc_czynszu='" + wysokosc_czynszu + '\'' +
+                ", oplaty_dodatkowe='" + oplaty_dodatkowe + '\'' +
+                ", kwota_do_zaplaty='" + kwota_do_zaplaty + '\'' +
                 ", czy_oplacony='" + czy_oplacony + '\'' +
                 '}';
     }
 }
+

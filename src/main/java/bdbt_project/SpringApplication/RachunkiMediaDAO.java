@@ -8,27 +8,27 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class RachunkiDAO {
+public class RachunkiMediaDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public RachunkiDAO(JdbcTemplate jdbcTemplate) {
+    public RachunkiMediaDAO(JdbcTemplate jdbcTemplate) {
         super();
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Rachunki> listAll() {
+    public List<RachunkiMedia> listAll() {
         String sql = "SELECT * FROM ADRESY ORDER BY ADRES_ID";
 
-        List<Rachunki> listRachunki = jdbcTemplate.query(sql,
-                BeanPropertyRowMapper.newInstance(Rachunki.class));
+        List<RachunkiMedia> listRachunkiMedia = jdbcTemplate.query(sql,
+                BeanPropertyRowMapper.newInstance(RachunkiMedia.class));
 
-        return listRachunki;
+        return listRachunkiMedia;
     }
 
 
-    public List<Rachunki> getList(String username) {
+    public List<RachunkiMedia> getList(String username) {
 
         String sql = String.format(
                 "SELECT m.numer_lokalu, o.data_wystawienia_rachunku,\n" +
@@ -42,9 +42,9 @@ public class RachunkiDAO {
                         "  AND z.oplaty_id=o.oplaty_id\n" +
                         "  AND z.medium_id=md.medium_id", username);
 
-        List<Rachunki> listRachunki = jdbcTemplate.query(sql,
-                BeanPropertyRowMapper.newInstance(Rachunki.class));
-        return listRachunki;
+        List<RachunkiMedia> listRachunkiMedia = jdbcTemplate.query(sql,
+                BeanPropertyRowMapper.newInstance(RachunkiMedia.class));
+        return listRachunkiMedia;
     }
 
 }

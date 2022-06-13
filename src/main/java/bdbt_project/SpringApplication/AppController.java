@@ -25,7 +25,9 @@ public class AppController implements WebMvcConfigurer {
     private AdresyDAO adresyDAO;
 
     @Autowired
-    private RachunkiDAO rachunkiDAO;
+    private RachunkiMediaDAO rachunkiMediaDAO;
+    @Autowired
+    private RachunkiCzynszeDAO rachunkiCzynszeDAO;
 
     @Autowired
     private Pracownicy_biurowiDAO pracownicy_biurowiDAO;
@@ -50,7 +52,8 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/admin/adresy/create").setViewName("admin/adresyCreate");
         registry.addViewController("/admin/adresy/{id}/update").setViewName("admin/adresyUpdate");
 
-        registry.addViewController("user/rachunki").setViewName("user/rachunki");
+        registry.addViewController("user/rachunki/media").setViewName("user/rachunki_media");
+        registry.addViewController("user/rachunki/czynsze").setViewName("user/rachunki_czynsze");
     }
     @Controller
     public class DashboardController {
@@ -193,11 +196,28 @@ public class AppController implements WebMvcConfigurer {
             return "admin/pracownicy";
         }
 
-        @GetMapping(value = {"/user/rachunki"})
+        @GetMapping(value = {"/user/rachunki/media"})
+        public String getRachunkiMediaList(Model model, Principal principal) {
+            try {
+                List<RachunkiMedia> listRachunkiMedia = rachunkiMediaDAO.getList(principal.getName());
+                model.addAttribute("listRachunkiMedia", listRachunkiMedia);
+                return "user/rachunki_media";
+            }
+            catch (NullPointerException ex) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Please log in first");
+            }
+        }
+
+        @GetMapping(value = {"/user/rachunki/czynsze"})
         public String getRachunkiList(Model model, Principal principal) {
-            List<Rachunki> listRachunki = rachunkiDAO.getList(principal.getName());
-            model.addAttribute("listRachunki", listRachunki);
-            return "/user/rachunki";
+            try {
+                List<RachunkiCzynsze> listRachunkiCzynsze = rachunkiCzynszeDAO.getList(principal.getName());
+                model.addAttribute("listRachunkiCzynsze", listRachunkiCzynsze);
+                return "user/rachunki_czynsze";
+            }
+            catch (NullPointerException ex) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Please log in first");
+            }
         }
 
 /*        @ResponseBody

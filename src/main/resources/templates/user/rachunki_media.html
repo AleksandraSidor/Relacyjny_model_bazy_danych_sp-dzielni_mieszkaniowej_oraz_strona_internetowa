@@ -13,7 +13,7 @@
 <nav th:replace="fragments/general.html :: navbar"></nav>
 
 <div class="container pt-3">
-    <h3 class="display-3"><b>Rachunki</b> user view</h3>
+    <h3 class="display-3"><b>Rachunki - media</b> user view</h3>
     <div class="pt-5">
         <!-- Table -->
         <div class="tableFixHead">
@@ -34,7 +34,7 @@
                 <!-- Table body -->
 
                 <tbody>
-                <tr th:each = "rachunek: ${listRachunki}">
+                <tr th:each = "rachunek: ${listRachunkiMedia}">
                     <td th:text = "${rachunek.numer_lokalu}">Numer lokalu</td>
                     <td th:text = "${rachunek.data_wystawienia_rachunku}">Data wystawienia rachunku</td>
                     <td th:text = "${rachunek.kwota_do_zaplaty}">Kwota do zapłaty</td>
@@ -42,7 +42,19 @@
                     <td th:text = "${rachunek.za_okres_do}">Za okres do</td>
                     <td th:text = "${rachunek.medium}">Medium</td>
                     <td th:text = "${rachunek.czy_oplacony}">Opłacony?</td>
-                    <td><a class="btn btn-primary" href="#">Payment</a></td>
+                    <td>
+                        <span th:if="${rachunek.czy_oplacony == 'N'}">
+                            <a class="btn btn-primary" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
+                                    <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
+                                </svg>
+                                Payment
+                            </a>
+                        </span>
+                    </td>
+
+
                 </tr>
                 </tbody>
             </table>
@@ -58,10 +70,11 @@
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/script.js}"></script>
 
-<!--<script>-->
-<!--    // set proper dropdown menu item as 'active'-->
-<!--    $("#adresyAdmin").addClass("active");-->
-<!--</script>-->
+<script>
+    // set proper dropdown menu item as 'active'
+    $("#mediaUser").addClass("active");
+    $("#userDropdownMenu").addClass("active");
+</script>
 
 </body>
 </html>

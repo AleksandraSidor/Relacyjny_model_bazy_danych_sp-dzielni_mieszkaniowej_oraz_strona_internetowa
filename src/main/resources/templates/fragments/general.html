@@ -26,12 +26,16 @@
           </li>
           </div>
 
-          <li class="nav-item">
+          <li class="nav-item" id="navHome">
             <a class="nav-link" th:href="@{/index}">Home</a>
           </li>
 
+          <li class="nav-item" id="navMain">
+            <a class="nav-link" th:href="@{/main}">Main page</a>
+          </li>
+
           <div sec:authorize="hasRole('ADMIN')">
-          <li class="nav-item dropdown" id="adminDropdownMenuItem">
+          <li class="nav-item dropdown" id="adminDropdownMenu">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
               Admin views
             </a>
@@ -41,6 +45,18 @@
               <a id="pracownicyAdmin" class="dropdown-item" th:href="@{/admin/pracownicy}">Pracownicy</a>
             </div>
           </li>
+          </div>
+
+          <div sec:authorize="hasRole('USER')">
+            <li class="nav-item dropdown" id="userDropdownMenu">
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                User views
+              </a>
+              <div id="userDropdown" class="dropdown-menu">
+                <a id="czynszeUser" class="dropdown-item" th:href="@{/user/rachunki/czynsze}">Czynsze</a>
+                <a id="mediaUser" class="dropdown-item" th:href="@{/user/rachunki/media}">Media</a>
+              </div>
+            </li>
           </div>
 
 
