@@ -32,7 +32,7 @@
                 <tbody>
                 <tr>
                     <th>Imię</th>
-                    <td><input type="text" maxlength="20" th:field="*{imie}"></td>
+                    <td><input type="text" maxlength="20" th:field="*{imie}" required></td>
                 </tr>
                 <tr>
                     <th>Drugie imię</th>
@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                     <th>Nazwisko</th>
-                    <td><input type="text" maxlength="30" th:field="*{nazwisko}"></td>
+                    <td><input type="text" maxlength="30" th:field="*{nazwisko}" required></td>
                 </tr>
                 <tr>
                     <th>Pesel</th>
@@ -48,17 +48,22 @@
                 </tr>
                 <tr>
                     <th>Data_urodzenia</th>
-                    <td><input type="date"  th:field="*{data_urodzenia}"></td>
+                    <td><input type="date"  th:field="*{data_urodzenia}" required></td>
                 </tr>
 
                 <tr>
                     <th>Numer telefonu</th>
-                    <td><input type="text" maxlength="12" th:field="*{numer_telefonu}"></td>
+                    <td><input type="text" maxlength="12" th:field="*{numer_telefonu}" required></td>
                 </tr>
 
                 <tr>
                     <th>Plec</th>
-                    <td><input type="text"  maxlength="1" th:field="*{plec}"></td>
+                    <td>
+                        <select th:field="*{plec}" required>
+                            <option th:value="'M'" th:text="M"></option>
+                            <option th:value="'K'" th:text="K"></option>
+                        </select>
+                    </td>
                 </tr>
 
                 <tr>
@@ -68,7 +73,7 @@
 
                 <tr>
                     <th>Data zatrudnienia</th>
-                    <td><input type="date"  th:field="*{data_zatrudnienia}"></td>
+                    <td><input type="date"  th:field="*{data_zatrudnienia}" required></td>
                 </tr>
 
                 <tr>
@@ -78,11 +83,11 @@
 
                 <tr>
                     <th>Ulica</th>
-                    <td><input type="text" maxlength="56" th:field="*{ulica}"></td>
+                    <td><input type="text" maxlength="56" th:field="*{ulica}" required></td>
                 </tr>
                 <tr>
                     <th>Numer domu</th>
-                    <td><input type="text" maxlength="5" th:field="*{numer_domu}"></td>
+                    <td><input type="text" maxlength="5" th:field="*{numer_domu}" required></td>
                 </tr>
                 <tr>
                     <th>Numer lokalu</th>
@@ -90,11 +95,11 @@
                 </tr>
                 <tr>
                     <th>Miasto</th>
-                    <td><input type="text" maxlength="30" th:field="*{miasto}"></td>
+                    <td><input type="text" maxlength="30" th:field="*{miasto}" required></td>
                 </tr>
                 <tr>
                     <th>Kod pocztowy</th>
-                    <td><input type="text" maxlength="6" th:field="*{kod_pocztowy}"></td>
+                    <td><input type="text" maxlength="6" th:field="*{kod_pocztowy}" required></td>
                 </tr>
 
                 </tbody>
@@ -126,6 +131,11 @@
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/script.js}"></script>
 
+<script>
+    // set proper dropdown menu item as 'active'
+    $("#pracownicyAdmin").addClass("active");
+    $("#adminDropdownMenu").addClass("active");
+</script>
 
 </body>
 </html>>

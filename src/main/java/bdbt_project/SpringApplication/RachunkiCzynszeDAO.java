@@ -41,7 +41,8 @@ public class RachunkiCzynszeDAO {
                         "  AND os.OSOBA_ID=mi.OSOBA_ID\n" +
                         "  AND mi.MIESZKANIE_ID=m.MIESZKANIE_ID\n" +
                         "  AND o.mieszkanie_id=m.mieszkanie_id\n" +
-                        "  AND cz.oplaty_id=o.oplaty_id", username);
+                        "  AND cz.oplaty_id=o.oplaty_id" +
+                        "  ORDER BY o.oplaty_id", username);
 
         List<RachunkiCzynsze> listRachunkiCzynsze = jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(RachunkiCzynsze.class));

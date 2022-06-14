@@ -1,5 +1,10 @@
 package bdbt_project.SpringApplication;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
+
 public class Pracownicy_biurowi {
 
     private int pracownik_id;
@@ -7,12 +12,15 @@ public class Pracownicy_biurowi {
     private String drugie_imie;
     private String nazwisko;
     private String pesel;
-    private String data_urodzenia;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date data_urodzenia;
     private String numer_telefonu;
     private String plec;
     private String numer_konta;
-    private String data_zatrudnienia;
-    private String data_zwolnienia;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date data_zatrudnienia;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date data_zwolnienia;
     private String ulica;
     private String numer_domu;
     private String numer_lokalu;
@@ -26,7 +34,11 @@ public class Pracownicy_biurowi {
     public Pracownicy_biurowi() {
     }
 
-    public Pracownicy_biurowi(int pracownik_id, String imie, String drugie_imie, String nazwisko, String pesel, String data_urodzenia, String numer_telefonu, String plec, String numer_konta, String data_zatrudnienia, String data_zwolnienia, String ulica, String numer_domu, String numer_lokalu, String miasto, String kod_pocztowy, int spoldzielnia_mieszkaniowa_id, int adres_id) {
+    public Pracownicy_biurowi(int pracownik_id, String imie, String drugie_imie, String nazwisko, String pesel,
+                              Date data_urodzenia, String numer_telefonu, String plec, String numer_konta,
+                              Date data_zatrudnienia, Date data_zwolnienia, String ulica, String numer_domu,
+                              String numer_lokalu, String miasto, String kod_pocztowy, int spoldzielnia_mieszkaniowa_id,
+                              int adres_id) {
         this.pracownik_id = pracownik_id;
         this.imie = imie;
         this.drugie_imie = drugie_imie;
@@ -47,8 +59,7 @@ public class Pracownicy_biurowi {
         this.adres_id = adres_id;
     }
 
-
-        public int getPracownik_id() {
+    public int getPracownik_id() {
         return pracownik_id;
     }
 
@@ -88,14 +99,6 @@ public class Pracownicy_biurowi {
         this.pesel = pesel;
     }
 
-    public String getData_urodzenia() {
-        return data_urodzenia;
-    }
-
-    public void setData_urodzenia(String data_urodzenia) {
-        this.data_urodzenia = data_urodzenia;
-    }
-
     public String getNumer_telefonu() {
         return numer_telefonu;
     }
@@ -118,22 +121,6 @@ public class Pracownicy_biurowi {
 
     public void setNumer_konta(String numer_konta) {
         this.numer_konta = numer_konta;
-    }
-
-    public String getData_zatrudnienia() {
-        return data_zatrudnienia;
-    }
-
-    public void setData_zatrudnienia(String data_zatrudnienia) {
-        this.data_zatrudnienia = data_zatrudnienia;
-    }
-
-    public String getData_zwolnienia() {
-        return data_zwolnienia;
-    }
-
-    public void setData_zwolnienia(String data_zwolnienia) {
-        this.data_zwolnienia = data_zwolnienia;
     }
 
 
@@ -193,6 +180,29 @@ public class Pracownicy_biurowi {
         this.adres_id = adres_id;
     }
 
+    public Date getData_urodzenia() {
+        return data_urodzenia;
+    }
+
+    public void setData_urodzenia(Date data_urodzenia) {
+        this.data_urodzenia = data_urodzenia;
+    }
+
+    public Date getData_zatrudnienia() {
+        return data_zatrudnienia;
+    }
+
+    public void setData_zatrudnienia(Date data_zatrudnienia) {
+        this.data_zatrudnienia = data_zatrudnienia;
+    }
+
+    public Date getData_zwolnienia() {
+        return data_zwolnienia;
+    }
+
+    public void setData_zwolnienia(Date data_zwolnienia) {
+        this.data_zwolnienia = data_zwolnienia;
+    }
 
     @Override
     public String toString() {

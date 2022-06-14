@@ -697,117 +697,117 @@ END;
 
 -- Create foreign keys (relationships) section ------------------------------------------------- 
 
-ALTER TABLE Zarzady_spoldzielni ADD CONSTRAINT Jest_zarzadzana_przez FOREIGN KEY (Spoldzielnia_mieszkaniowa_ID) REFERENCES Spoldzielnie_mieszkaniowe (Spoldzielnia_mieszkaniowa_ID)
+ALTER TABLE Zarzady_spoldzielni ADD CONSTRAINT Jest_zarzadzana_przez FOREIGN KEY (Spoldzielnia_mieszkaniowa_ID) REFERENCES Spoldzielnie_mieszkaniowe (Spoldzielnia_mieszkaniowa_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Bloki ADD CONSTRAINT Administruje FOREIGN KEY (Spoldzielnia_mieszkaniowa_ID) REFERENCES Spoldzielnie_mieszkaniowe (Spoldzielnia_mieszkaniowa_ID)
+ALTER TABLE Bloki ADD CONSTRAINT Administruje FOREIGN KEY (Spoldzielnia_mieszkaniowa_ID) REFERENCES Spoldzielnie_mieszkaniowe (Spoldzielnia_mieszkaniowa_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Mieszkania ADD CONSTRAINT Posiada FOREIGN KEY (Blok_ID) REFERENCES Bloki (Blok_ID)
+ALTER TABLE Mieszkania ADD CONSTRAINT Posiada FOREIGN KEY (Blok_ID) REFERENCES Bloki (Blok_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Bloki ADD CONSTRAINT Znajduje_sie_pod_adresem FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID)
+ALTER TABLE Bloki ADD CONSTRAINT Znajduje_sie_pod_adresem FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Firmy_uslugowe ADD CONSTRAINT Zleca wykonanie uslugi FOREIGN KEY (Spoldzielnia_mieszkaniowa_ID) REFERENCES Spoldzielnie_mieszkaniowe (Spoldzielnia_mieszkaniowa_ID)
+ALTER TABLE Firmy_uslugowe ADD CONSTRAINT Zleca_wykonanie_uslugi FOREIGN KEY (Spoldzielnia_mieszkaniowa_ID) REFERENCES Spoldzielnie_mieszkaniowe (Spoldzielnia_mieszkaniowa_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Uslugi ADD CONSTRAINT Firma wykonuje uslugi FOREIGN KEY (Firma_uslugowa_ID) REFERENCES Firmy_uslugowe (Firma_uslugowa_ID)
+ALTER TABLE Uslugi ADD CONSTRAINT Firma_wykonuje_uslugi FOREIGN KEY (Firma_uslugowa_ID) REFERENCES Firmy_uslugowe (Firma_uslugowa_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Uslugi ADD CONSTRAINT Usluga jest wykonywana w bloku FOREIGN KEY (Blok_ID) REFERENCES Bloki (Blok_ID)
+ALTER TABLE Uslugi ADD CONSTRAINT Usluga_jest_wykonywana_w_bloku FOREIGN KEY (Blok_ID) REFERENCES Bloki (Blok_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Zuzycia ADD CONSTRAINT Medium_jest_zuzywane FOREIGN KEY (Medium_ID) REFERENCES Media (Medium_ID)
+ALTER TABLE Zuzycia ADD CONSTRAINT Medium_jest_zuzywane FOREIGN KEY (Medium_ID) REFERENCES Media (Medium_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Mieszkancy ADD CONSTRAINT Jest_mieszkancem FOREIGN KEY (Osoba_id) REFERENCES Osoby (Osoba_ID)
+ALTER TABLE Mieszkancy ADD CONSTRAINT Jest_mieszkancem FOREIGN KEY (Osoba_id) REFERENCES Osoby (Osoba_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Wlasciciele ADD CONSTRAINT Jest_wlascicielem FOREIGN KEY (Osoba_id) REFERENCES Osoby (Osoba_ID)
+ALTER TABLE Wlasciciele ADD CONSTRAINT Jest_wlascicielem FOREIGN KEY (Osoba_id) REFERENCES Osoby (Osoba_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Oplaty ADD CONSTRAINT Ma_oplaty FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID)
+ALTER TABLE Oplaty ADD CONSTRAINT Ma_oplaty FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Czynsze ADD CONSTRAINT Oplaty_za_czynsz FOREIGN KEY (Oplaty_ID) REFERENCES Oplaty (Oplaty_ID)
+ALTER TABLE Czynsze ADD CONSTRAINT Oplaty_za_czynsz FOREIGN KEY (Oplaty_ID) REFERENCES Oplaty (Oplaty_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Zuzycia ADD CONSTRAINT Generuje_zuzycia FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID)
+ALTER TABLE Zuzycia ADD CONSTRAINT Generuje_zuzycia FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Zuzycia ADD CONSTRAINT Oplaty_za_zuzycie FOREIGN KEY (Oplaty_ID) REFERENCES Oplaty (Oplaty_ID)
+ALTER TABLE Zuzycia ADD CONSTRAINT Oplaty_za_zuzycie FOREIGN KEY (Oplaty_ID) REFERENCES Oplaty (Oplaty_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Pracownicy ADD CONSTRAINT Zatrudnia FOREIGN KEY (Spoldzielnia_mieszkaniowa_ID) REFERENCES Spoldzielnie_mieszkaniowe (Spoldzielnia_mieszkaniowa_ID)
+ALTER TABLE Pracownicy ADD CONSTRAINT Zatrudnia FOREIGN KEY (Spoldzielnia_mieszkaniowa_ID) REFERENCES Spoldzielnie_mieszkaniowe (Spoldzielnia_mieszkaniowa_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Wlasciciele ADD CONSTRAINT Ma_adres FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID)
+ALTER TABLE Wlasciciele ADD CONSTRAINT Ma_adres FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Spoldzielnie_mieszkaniowe ADD CONSTRAINT Ma_siedzibe_pod_adresem FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID)
+ALTER TABLE Spoldzielnie_mieszkaniowe ADD CONSTRAINT Ma_siedzibe_pod_adresem FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Firmy_uslugowe ADD CONSTRAINT Jest_pod_adresem FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID)
+ALTER TABLE Firmy_uslugowe ADD CONSTRAINT Jest_pod_adresem FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Pracownicy ADD CONSTRAINT Posiada_adres FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID)
+ALTER TABLE Pracownicy ADD CONSTRAINT Posiada_adres FOREIGN KEY (Adres_ID) REFERENCES Adresy (Adres_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Wynagrodzenia ADD CONSTRAINT Ma_wynagrodzenie FOREIGN KEY (Pracownik_ID) REFERENCES Pracownicy (Pracownik_ID)
+ALTER TABLE Wynagrodzenia ADD CONSTRAINT Ma_wynagrodzenie FOREIGN KEY (Pracownik_ID) REFERENCES Pracownicy (Pracownik_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Wlasciciele ADD CONSTRAINT Ma_wlascicieli FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID)
+ALTER TABLE Wlasciciele ADD CONSTRAINT Ma_wlascicieli FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Mieszkancy ADD CONSTRAINT Ma_mieszkancow FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID)
+ALTER TABLE Mieszkancy ADD CONSTRAINT Ma_mieszkancow FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID) ON DELETE CASCADE
 /
 
 
 
-ALTER TABLE Czynsze ADD CONSTRAINT Ma_czynsz FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID)
+ALTER TABLE Czynsze ADD CONSTRAINT Ma_czynsz FOREIGN KEY (Mieszkanie_ID) REFERENCES Mieszkania (Mieszkanie_ID) ON DELETE CASCADE
 /
 
 

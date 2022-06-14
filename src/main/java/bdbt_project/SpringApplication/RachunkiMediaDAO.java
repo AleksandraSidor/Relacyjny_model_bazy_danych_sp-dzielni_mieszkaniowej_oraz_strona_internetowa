@@ -58,7 +58,8 @@ public class RachunkiMediaDAO {
                 "        AND mi.MIESZKANIE_ID=m.MIESZKANIE_ID\n" +
                 "        AND mi.OSOBA_ID = os.OSOBA_ID\n" +
                 "        AND o.mieszkanie_id=m.mieszkanie_id\n" +
-                "        AND o.MIESZKANIE_ID=m.MIESZKANIE_ID", username, oplaty_id);
+                "        AND o.MIESZKANIE_ID=m.MIESZKANIE_ID " +
+                "        ORDER BY z.oplaty_id", username, oplaty_id);
 
 
 

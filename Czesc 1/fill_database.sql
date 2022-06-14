@@ -419,28 +419,3 @@ where osoba_id=5;
 UPDATE OSOBY
 set username='user6', haslo='user6'
 where osoba_id=6;
-
-
-UPDATE OSOBY
-set username='user7', haslo='user7'
-where osoba_id=7;
-
-UPDATE OSOBY
-set username='user8', haslo='user8'
-where osoba_id=8;
-
-UPDATE OSOBY
-set username='user9', haslo='user9'
-where osoba_id=9;
-
-UPDATE OSOBY
-set username='user10', haslo='user10'
-where osoba_id=10;
-
-UPDATE OSOBY
-set username='user11', haslo='user11'
-where osoba_id=11;
-
-UPDATE OSOBY
-set username='user12', haslo='britneybitch'
-where osoba_id=12;

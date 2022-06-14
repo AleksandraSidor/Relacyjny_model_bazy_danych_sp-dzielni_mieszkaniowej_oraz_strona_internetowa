@@ -9,7 +9,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFDAB9;">
     <div class="container-fluid" >
-      <a class="navbar-brand" href="/">Nazwa spoldzielni
+      <a class="navbar-brand" href="/">
         <img  id="brand-image" alt="Website Logo" src="https://cdn.myclarionhousing.com/-/jssmedia/clarion-housing-association/images/logos/clarion-housing-brand-logo-colour.ashx?rev=49b22dbc691142b4be39c71b90069f28&extension=webp&w=200&h=auto&mw=200" height="50"/>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -98,7 +98,7 @@
 </div>
 
 <div th:fragment="message">
-  <div class="alert alert-danger" th:text="${message}">
+  <div id="messageBar" class="alert alert-danger" th:text="${message}">
   </div>
 </div>
 

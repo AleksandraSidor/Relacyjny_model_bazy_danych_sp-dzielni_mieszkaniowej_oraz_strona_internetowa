@@ -15,7 +15,6 @@ public class Bloki {
     }
 
     public Bloki(int blok_id, int liczba_pieter, int liczba_lokali, int rok_powstania, int winda, int liczba_klatek, int spoldzielnia_mieszkaniowa_id, int adres_id) {
-       // super();
         this.blok_id = blok_id;
         this.liczba_pieter = liczba_pieter;
         this.liczba_lokali = liczba_lokali;

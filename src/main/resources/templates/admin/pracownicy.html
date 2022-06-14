@@ -50,12 +50,12 @@
                     <td th:text = "${pracownicy_biurowi.drugie_imie}">Drugie imie</td>
                     <td th:text = "${pracownicy_biurowi.nazwisko}">Nazwisko</td>
                     <td th:text = "${pracownicy_biurowi.pesel}">Pesel</td>
-                    <td th:text = "${pracownicy_biurowi.data_urodzenia}">Data urodzenia</td>
+                    <td th:text = "${#dates.format(pracownicy_biurowi.data_urodzenia, 'dd-MM-yyyy')}">Data urodzenia</td>
                     <td th:text = "${pracownicy_biurowi.numer_telefonu}">Numer telefonu</td>
                     <td th:text = "${pracownicy_biurowi.plec}">Plec</td>
                     <td th:text = "${pracownicy_biurowi.numer_konta}">Numer konta</td>
-                    <td th:text = "${pracownicy_biurowi.data_zatrudnienia}">Data zatrudnienia</td>
-                    <td th:text = "${pracownicy_biurowi.data_zwolnienia}">Data zwolnienia</td>
+                    <td th:text = "${#dates.format(pracownicy_biurowi.data_zatrudnienia, 'dd-MM-yyyy')}">Data zatrudnienia</td>
+                    <td th:text = "${#dates.format(pracownicy_biurowi.data_zwolnienia, 'dd-MM-yyyy')}">Data zwolnienia</td>
                     <td th:text = "${pracownicy_biurowi.ulica}">Ulica</td>
                     <td th:text = "${pracownicy_biurowi.numer_domu}">Numer domu</td>
                     <td th:text = "${pracownicy_biurowi.numer_lokalu}">Numer lokalu</td>

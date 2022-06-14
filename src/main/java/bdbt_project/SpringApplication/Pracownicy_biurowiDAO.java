@@ -1,10 +1,10 @@
 package bdbt_project.SpringApplication;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
@@ -21,9 +21,12 @@ public class Pracownicy_biurowiDAO {
     }
 
     public List<Pracownicy_biurowi> list(){
-        String sql = String.format("SELECT p.pracownik_id, p.imie, p.drugie_imie, p.nazwisko, p.pesel, p.data_urodzenia, p.numer_telefonu, p.plec, p.numer_konta, p.data_zatrudnienia, p.data_zwolnienia, a.ulica, a.numer_domu, a.numer_lokalu, a.miasto, a.kod_pocztowy \n" +
+        String sql = "SELECT p.pracownik_id, p.imie, p.drugie_imie, p.nazwisko, p.pesel, p.data_urodzenia, p.numer_telefonu," +
+                " p.plec, p.numer_konta, p.data_zatrudnienia, p.data_zwolnienia, a.ulica, a.numer_domu," +
+                " a.numer_lokalu, a.miasto, a.kod_pocztowy \n" +
                 "FROM pracownicy p, adresy a\n" +
-                "WHERE p.adres_id = a.adres_id");
+                "WHERE p.adres_id = a.adres_id " +
+                "ORDER BY pracownik_id";
 
         List<Pracownicy_biurowi> listPracownicy_biurowi = jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Pracownicy_biurowi.class));
@@ -32,21 +35,31 @@ public class Pracownicy_biurowiDAO {
 
     public void save(Pracownicy_biurowi pracownicy_biurowi, Adresy adresy) {
         pracownicy_biurowi.setSpoldzielnia_mieszkaniowa_id(1);
-        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-
-        insertActor.withTableName("ADRESY").usingColumns("ulica", "numer_domu", "numer_lokalu",
-                "miasto", "kod_pocztowy");
-
-        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adresy);
-        insertActor.execute(param);
-
-        String sql = String.format("SELECT adres_id FROM adresy WHERE ulica='%1$s' " +
+        String sqlcheck = String.format("SELECT adres_id FROM adresy WHERE ulica='%1$s' " +
                 "AND numer_domu='%2$s' " +
                 "AND numer_lokalu='%3$s' " +
                 "AND miasto='%4$s'", pracownicy_biurowi.getUlica(), pracownicy_biurowi.getNumer_domu(), pracownicy_biurowi.getNumer_lokalu(), pracownicy_biurowi.getMiasto());
+        try {
+            Integer idA = jdbcTemplate.queryForObject(sqlcheck, Integer.class);
+            pracownicy_biurowi.setAdres_id(idA);
+        }
+        catch (EmptyResultDataAccessException ex){
+            SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
 
-        Integer id = jdbcTemplate.queryForObject(sql, Integer.class);
-        pracownicy_biurowi.setAdres_id(id);
+            insertActor.withTableName("ADRESY").usingColumns("ulica", "numer_domu", "numer_lokalu",
+                    "miasto", "kod_pocztowy");
+
+            BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adresy);
+            insertActor.execute(param);
+
+            String sql = String.format("SELECT adres_id FROM adresy WHERE ulica='%1$s' " +
+                    "AND numer_domu='%2$s' " +
+                    "AND numer_lokalu='%3$s' " +
+                    "AND miasto='%4$s'", pracownicy_biurowi.getUlica(), pracownicy_biurowi.getNumer_domu(), pracownicy_biurowi.getNumer_lokalu(), pracownicy_biurowi.getMiasto());
+            Integer id = jdbcTemplate.queryForObject(sql, Integer.class);
+            pracownicy_biurowi.setAdres_id(id);
+        }
+
 
         SimpleJdbcInsert insertActor2 = new SimpleJdbcInsert(jdbcTemplate);
 
@@ -73,14 +86,16 @@ public class Pracownicy_biurowiDAO {
     public void update(Pracownicy_biurowi pracownicy_biurowi) {
 
         pracownicy_biurowi.setSpoldzielnia_mieszkaniowa_id(1);
-        String sql = "UPDATE pracownicy SET imie=:imie, drugie_imie=:drugie_imie, nazwisko=:nazwisko, pesel=:pesel, " +
-                "data_urodzenia=:data_urodzenia, numer_telefonu=:numer_telefonu, plec=:plec, numer_konta=:numer_konta, " +
-                "data_zatrudnienia=:data_zatrudnienia, data_zwolnienia=:TO_DATE('data_zwolnienia', 'YYYY-MM-DD HH24:MI:SS'), spoldzielnia_mieszkaniowa_id=:spoldzielnia_mieszkaniowa_id, adres_id=:adres_id " +
-                "WHERE pracownik_id=:pracownik_id";
 
-        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownicy_biurowi);
-        NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
-        template.update(sql, param);
+        jdbcTemplate.update("UPDATE pracownicy SET imie=?, drugie_imie=?, nazwisko=?, pesel=?, " +
+                        "data_urodzenia=?, numer_telefonu=?, plec=?, numer_konta=?, data_zwolnienia=?, " +
+                        "spoldzielnia_mieszkaniowa_id=?, adres_id=? " +
+                        "WHERE pracownik_id=?", pracownicy_biurowi.getImie(), pracownicy_biurowi.getDrugie_imie(),
+                pracownicy_biurowi.getNazwisko(), pracownicy_biurowi.getPesel(), pracownicy_biurowi.getData_urodzenia(),
+                pracownicy_biurowi.getNumer_telefonu(), pracownicy_biurowi.getPlec(), pracownicy_biurowi.getNumer_konta(),
+                pracownicy_biurowi.getData_zwolnienia(),
+                pracownicy_biurowi.getSpoldzielnia_mieszkaniowa_id(),
+                pracownicy_biurowi.getAdres_id(), pracownicy_biurowi.getPracownik_id());
     }
 
     public void delete(int id) {
