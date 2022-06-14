@@ -23,9 +23,9 @@
         <tr> <!-- Table row -->
           <th>Numer lokalu</th>
           <th>Data wystawienia rachunku</th>
-          <th>Wysokość czynszu</th>
-          <th>Opłaty dodatkowe</th>
-          <th>Kwota do zapłaty</th>
+          <th>Wysokość czynszu [zł]</th>
+          <th>Opłaty dodatkowe [zł]</th>
+          <th>Kwota do zapłaty [zł]</th>
           <th>Za okres od</th>
           <th>Za okres do</th>
           <th>Opłacony?</th>
@@ -38,15 +38,15 @@
         <tr th:each = "rachunek: ${listRachunkiCzynsze}">
           <td th:text = "${rachunek.numer_lokalu}">Numer lokalu</td>
           <td th:text = "${rachunek.data_wystawienia_rachunku}">Data wystawienia rachunku</td>
-          <td th:text = "${rachunek.wysokosc_czynszu}">Wysokość czynszu</td>
-          <td th:text = "${rachunek.oplaty_dodatkowe}">Opłaty dodatkowe</td>
-          <td th:text = "${rachunek.kwota_do_zaplaty}">Kwota do zapłaty</td>
+          <td th:text = "${rachunek.wysokosc_czynszu}">Wysokość czynszu [zł]</td>
+          <td th:text = "${rachunek.oplaty_dodatkowe}">Opłaty dodatkowe [zł]</td>
+          <td th:text = "${rachunek.kwota_do_zaplaty}">Kwota do zapłaty [zł]</td>
           <td th:text = "${rachunek.za_okres_od}">Za okres od</td>
           <td th:text = "${rachunek.za_okres_do}">Za okres do</td>
           <td th:text = "${rachunek.czy_oplacony}">Opłacony?</td>
           <td>
             <span th:if="${rachunek.czy_oplacony == 'N'}">
-                <a class="btn btn-primary" th:href="@{'/user/rachunki/czynsze/' + ${rachunek.oplaty_id} + '/pay'}">
+                <a class="btn btn-outline-danger" id="payment" th:href="@{'/user/rachunki/czynsze/' + ${rachunek.oplaty_id} + '/pay'}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
                         <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>

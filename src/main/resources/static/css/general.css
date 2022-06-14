@@ -125,6 +125,25 @@ table.fullTable {
     border-color: transparent !important;
 }
 
+
+#payment {
+    border-color: transparent;
+    color: black;
+}
+
+#payment:hover {
+    background-color:transparent !important;
+    border-width: 1px;
+    color: #a45656;
+    border-color:transparent;
+}
+
+#payment:focus, #payment:active {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
 .tableFixHead {
     overflow-y: auto;
     height: auto;
@@ -198,4 +217,10 @@ body {
 
 
 
+.dropdown-item:hover {
+    background-color: #FFDAB9 !important;
+}
 
+.dropdown:focus .dropdown-item {
+    background-color: #FFDAB9 !important;
+}
